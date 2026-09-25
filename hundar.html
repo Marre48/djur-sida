@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 ```
-<title>Hundar – Djurvärlden</title>
+<title>Hundar | Djurvärlden</title>
 
 <meta name="description"
-      content="Lär dig mer om hundar, deras historia, beteende, sinnen och relation till människor.">
+      content="En modern faktasida om hundar, deras historia, sinnen, beteende och relation till människor.">
 
 <link rel="stylesheet" href="style.css">
 ```
@@ -18,11 +18,14 @@
 
 <body>
 
+<!-- ================= NAVBAR ================= -->
+
 <header class="navbar">
 
 ```
 <a href="index.html" class="logo">
-    🐾 Djurvärlden
+    <span>🐾</span>
+    Djurvärlden
 </a>
 
 <nav>
@@ -34,57 +37,124 @@
 
 </header>
 
-<main>
+<!-- ================= HERO ================= -->
+
+<section class="hero">
 
 ```
-<!-- HERO -->
+<img
+    src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=2000&q=85"
+    alt="Hund som sitter utomhus"
+    class="hero-background"
+>
 
-<section class="animal-hero">
+<div class="hero-dark"></div>
 
-    <img
-        src="https://upload.wikimedia.org/wikipedia/commons/0/09/IMG_dogs.jpg"
-        alt="Tre hundar"
-        class="hero-image"
-    >
+<div class="hero-content">
 
-    <div class="hero-overlay">
+    <span class="hero-label">
+        DJURVÄRLDEN
+    </span>
 
-        <div class="hero-content">
+    <h1>
+        Hundar
+    </h1>
 
-            <p class="eyebrow">
-                DJURVÄRLDEN • HUNDAR
-            </p>
+    <p class="scientific">
+        <em>Canis lupus familiaris</em>
+    </p>
 
-            <h1>
-                Hunden
-            </h1>
+    <p class="hero-text">
+        Lär dig mer om människans trogna följeslagare —
+        från hundens historia och fantastiska sinnen till
+        beteende, kommunikation och relationen med människor.
+    </p>
 
-            <p class="scientific-name">
-                <em>Canis lupus familiaris</em>
-            </p>
+    <a href="#fakta" class="hero-button">
+        Utforska hundar
+        <span>↓</span>
+    </a>
 
-            <p class="hero-description">
-                Ett av människans äldsta domesticerade djur
-                och en nära följeslagare genom historien.
-            </p>
-
-        </div>
-
-    </div>
+</div>
+```
 
 </section>
 
+<!-- ================= QUICK FACTS ================= -->
 
-<!-- INTRO -->
+<section class="quick-facts" id="fakta">
 
-<section class="content-container">
+```
+<div class="quick-fact">
 
-    <div class="article-layout">
+    <span class="fact-icon">🧬</span>
 
-        <article class="article">
+    <div>
+        <small>VETENSKAPLIGT NAMN</small>
+        <strong><em>Canis lupus familiaris</em></strong>
+    </div>
 
-            <p class="eyebrow">
-                ÖVERSIKT
+</div>
+
+
+<div class="quick-fact">
+
+    <span class="fact-icon">🐾</span>
+
+    <div>
+        <small>FAMILJ</small>
+        <strong>Canidae</strong>
+    </div>
+
+</div>
+
+
+<div class="quick-fact">
+
+    <span class="fact-icon">🌎</span>
+
+    <div>
+        <small>GRUPP</small>
+        <strong>Däggdjur</strong>
+    </div>
+
+</div>
+
+
+<div class="quick-fact">
+
+    <span class="fact-icon">❤️</span>
+
+    <div>
+        <small>LEVER MED</small>
+        <strong>Människan</strong>
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- ================= MAIN ================= -->
+
+<main class="page">
+
+```
+<div class="content">
+
+
+    <!-- INTRO -->
+
+    <section class="article-section">
+
+        <span class="section-number">
+            01
+        </span>
+
+        <div>
+
+            <p class="section-label">
+                GRUNDERNA
             </p>
 
             <h2>
@@ -93,410 +163,419 @@
 
             <p>
                 Hunden är ett domesticerat däggdjur som tillhör
-                hunddjursfamiljen, Canidae. Den domesticerade hunden
-                är nära besläktad med vargen och har under mycket
-                lång tid levt tillsammans med människor.
+                familjen hunddjur, Canidae. Den domesticerade
+                hunden är nära besläktad med vargen och har levt
+                tillsammans med människor under mycket lång tid.
             </p>
 
             <p>
-                Genom människans avel har hundar utvecklats till
-                många olika typer och raser. De kan skilja sig
-                mycket åt när det gäller storlek, kroppsform,
-                päls, beteende och vilka uppgifter de ursprungligen
-                avlades för.
+                Hundar finns i dag i nästan alla delar av världen
+                och används både som sällskapsdjur och i många
+                olika arbetsuppgifter. Genom selektiv avel har
+                människor utvecklat hundar med mycket olika
+                storlek, utseende, beteenden och egenskaper.
             </p>
 
             <p>
-                Hundar används i dag både som sällskapsdjur och
-                inom många olika arbetsområden. De kan bland annat
-                tränas för sök- och räddningsarbete, jakt,
-                vallning, service och andra uppgifter.
+                Trots den stora variationen mellan olika hundraser
+                tillhör alla domesticerade hundar samma art.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- IMAGE -->
+
+    <figure class="large-image">
+
+        <img
+            src="https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=1800&q=85"
+            alt="Hund ute i naturen"
+            loading="lazy"
+        >
+
+        <figcaption>
+            Hundar har utvecklats tillsammans med människor
+            under en mycket lång period.
+        </figcaption>
+
+    </figure>
+
+
+    <!-- HISTORY -->
+
+    <section class="article-section">
+
+        <span class="section-number">
+            02
+        </span>
+
+        <div>
+
+            <p class="section-label">
+                HISTORIA
+            </p>
+
+            <h2>
+                Hundens historia
+            </h2>
+
+            <p>
+                Hundens ursprung är nära kopplat till vargen.
+                Forskare har länge studerat när och var de första
+                hundarna domesticerades. Exakt hur processen gick
+                till är fortfarande föremål för forskning.
+            </p>
+
+            <p>
+                När hundar började leva närmare människor kunde
+                relationen gynna båda arterna. Hundar kunde dra
+                nytta av mat och skydd, medan människor kunde ha
+                nytta av hundarnas förmågor, exempelvis vid jakt
+                och vakthållning.
+            </p>
+
+            <p>
+                Under tusentals år har människor sedan avlat hundar
+                för olika egenskaper. Det har lett till den enorma
+                variation av hundar som finns i dag.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SENSES -->
+
+    <section class="article-section">
+
+        <span class="section-number">
+            03
+        </span>
+
+        <div>
+
+            <p class="section-label">
+                SINNEN
+            </p>
+
+            <h2>
+                Hundens fantastiska sinnen
+            </h2>
+
+            <p>
+                Hundar uppfattar världen på ett annat sätt än
+                människor. Deras lukt, hörsel och syn hjälper
+                dem att förstå och undersöka sin omgivning.
             </p>
 
 
-            <!-- FAKTA -->
+            <div class="science-grid">
 
-            <div class="fact-grid">
 
-                <div class="fact-box">
-                    <span>Vetenskapligt namn</span>
-                    <strong><em>Canis lupus familiaris</em></strong>
+                <article class="science-card">
+
+                    <div class="science-icon">
+                        👃
+                    </div>
+
+                    <h3>
+                        Luktsinnet
+                    </h3>
+
+                    <p>
+                        Luktsinnet spelar en mycket viktig roll
+                        för hundar. De använder dofter för att
+                        undersöka sin omgivning och identifiera
+                        olika saker.
+                    </p>
+
+                </article>
+
+
+                <article class="science-card">
+
+                    <div class="science-icon">
+                        👂
+                    </div>
+
+                    <h3>
+                        Hörseln
+                    </h3>
+
+                    <p>
+                        Hundar har en känslig hörsel och kan
+                        uppfatta vissa ljud som ligger utanför
+                        människans hörselområde.
+                    </p>
+
+                </article>
+
+
+                <article class="science-card">
+
+                    <div class="science-icon">
+                        👀
+                    </div>
+
+                    <h3>
+                        Synen
+                    </h3>
+
+                    <p>
+                        Hundens syn är anpassad för att upptäcka
+                        rörelser och fungerar tillsammans med
+                        hundens andra sinnen.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BEHAVIOR -->
+
+    <section class="article-section">
+
+        <span class="section-number">
+            04
+        </span>
+
+        <div>
+
+            <p class="section-label">
+                BETEENDE
+            </p>
+
+            <h2>
+                Hur kommunicerar hundar?
+            </h2>
+
+            <p>
+                Hundar kommunicerar genom en kombination av
+                kroppsspråk, ansiktsuttryck, läten och dofter.
+                För att förstå en hund behöver man därför se
+                till hela situationen.
+            </p>
+
+            <p>
+                En hunds svans, öron, kroppshållning och ansikte
+                kan ge information om hur hunden reagerar på
+                sin omgivning. Skällande och andra läten kan
+                också förekomma i många olika situationer.
+            </p>
+
+            <div class="quote">
+
+                <span>“</span>
+
+                <p>
+                    Hundens beteende behöver förstås i sitt
+                    sammanhang. Ett enskilt kroppsspråk eller
+                    ljud berättar inte alltid hela historien.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HUMAN RELATION -->
+
+    <section class="image-section">
+
+        <img
+            src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=1800&q=85"
+            alt="Hund tillsammans med människa"
+            loading="lazy"
+        >
+
+        <div class="image-section-content">
+
+            <span>
+                MÄNNISKAN & HUNDEN
+            </span>
+
+            <h2>
+                En relation som har förändrat båda arterna
+            </h2>
+
+            <p>
+                Hundar har haft många roller i människans samhällen,
+                från jakt och vallning till service, räddningsarbete
+                och sällskap.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- TYPES -->
+
+    <section class="article-section">
+
+        <span class="section-number">
+            05
+        </span>
+
+        <div>
+
+            <p class="section-label">
+                MÅNGFALD
+            </p>
+
+            <h2>
+                Olika typer av hundar
+            </h2>
+
+            <p>
+                Hundar har avlats för många olika uppgifter.
+                Därför kan deras egenskaper och behov skilja
+                sig mycket åt.
+            </p>
+
+
+            <div class="type-grid">
+
+                <div>
+                    <span>01</span>
+                    <h3>Jakthundar</h3>
+                    <p>
+                        Avlade för olika typer av jakt och
+                        spårarbete.
+                    </p>
                 </div>
 
-                <div class="fact-box">
-                    <span>Familj</span>
-                    <strong>Canidae</strong>
+                <div>
+                    <span>02</span>
+                    <h3>Vallhundar</h3>
+                    <p>
+                        Avlade för att hjälpa människor
+                        att hantera boskap.
+                    </p>
                 </div>
 
-                <div class="fact-box">
-                    <span>Grupp</span>
-                    <strong>Däggdjur</strong>
+                <div>
+                    <span>03</span>
+                    <h3>Arbetande hundar</h3>
+                    <p>
+                        Kan tränas för exempelvis service,
+                        räddning och bevakning.
+                    </p>
                 </div>
 
-                <div class="fact-box">
-                    <span>Föda</span>
-                    <strong>Allätande kost</strong>
+                <div>
+                    <span>04</span>
+                    <h3>Sällskapshundar</h3>
+                    <p>
+                        Hundar som främst hålls för sällskap
+                        och familjeliv.
+                    </p>
                 </div>
 
             </div>
 
+        </div>
 
-            <!-- HISTORIA -->
+    </section>
 
-            <section class="article-section">
 
-                <p class="eyebrow">
-                    HISTORIA
-                </p>
+    <!-- SOURCES -->
 
-                <h2>
-                    Från varg till tamhund
-                </h2>
+    <section class="sources">
 
-                <p>
-                    Hundens historia är nära kopplad till människans
-                    historia. Forskning visar att hundar härstammar
-                    från gamla vargpopulationer, men exakt när och
-                    var domesticeringen började är fortfarande ett
-                    område som studeras av forskare.
-                </p>
+        <div>
 
-                <p>
-                    Under domesticeringsprocessen förändrades hundar
-                    gradvis genom både naturligt urval och människans
-                    avel. Människor kunde gynna egenskaper som var
-                    användbara för exempelvis jakt, vallning,
-                    vakthållning eller sällskap.
-                </p>
+            <span class="section-label">
+                KÄLLOR
+            </span>
 
-                <p>
-                    Resultatet blev en enorm variation mellan olika
-                    hundar. Moderna hundraser är därför resultatet
-                    av många generationers selektiv avel.
-                </p>
+            <h2>
+                Läs mer och kontrollera informationen
+            </h2>
 
-            </section>
+            <p>
+                Informationen på Djurvärlden är sammanfattad
+                från externa källor. Klicka på en källa för
+                att läsa originalinformationen.
+            </p>
 
+        </div>
 
-            <!-- SINNEN -->
 
-            <section class="article-section">
+        <div class="source-list">
 
-                <p class="eyebrow">
-                    SINNEN
-                </p>
+            <a
+                href="https://sv.wikipedia.org/wiki/Hund"
+                target="_blank"
+                rel="noopener"
+            >
+                <span>Wikipedia</span>
+                <strong>Hund →</strong>
+            </a>
 
-                <h2>
-                    Hundens fantastiska sinnen
-                </h2>
+            <a
+                href="https://commons.wikimedia.org/wiki/Category:Dogs"
+                target="_blank"
+                rel="noopener"
+            >
+                <span>Wikimedia Commons</span>
+                <strong>Bilder →</strong>
+            </a>
 
-                <p>
-                    Hundar upplever sin omgivning på ett sätt som
-                    skiljer sig från människans. Framför allt är
-                    luktsinnet mycket viktigt för hundens sätt att
-                    undersöka världen.
-                </p>
+            <a
+                href="https://www.nationalgeographic.com/animals/mammals/facts/domestic-dog"
+                target="_blank"
+                rel="noopener"
+            >
+                <span>National Geographic</span>
+                <strong>Fakta →</strong>
+            </a>
 
+        </div>
 
-                <div class="info-cards">
+    </section>
 
-                    <div class="info-card">
-
-                        <div class="info-icon">
-                            👃
-                        </div>
-
-                        <h3>
-                            Luktsinnet
-                        </h3>
-
-                        <p>
-                            Hundar använder lukter för att upptäcka
-                            och identifiera information i sin
-                            omgivning. Deras luktsinne är mycket
-                            välutvecklat och därför kan tränade
-                            hundar användas i olika sökuppgifter.
-                        </p>
-
-                    </div>
-
-
-                    <div class="info-card">
-
-                        <div class="info-icon">
-                            👂
-                        </div>
-
-                        <h3>
-                            Hörseln
-                        </h3>
-
-                        <p>
-                            Hundar kan uppfatta ljud som människor
-                            inte hör och använder hörseln tillsammans
-                            med andra sinnen för att reagera på sin
-                            omgivning.
-                        </p>
-
-                    </div>
-
-
-                    <div class="info-card">
-
-                        <div class="info-icon">
-                            👀
-                        </div>
-
-                        <h3>
-                            Synen
-                        </h3>
-
-                        <p>
-                            Hundens syn är anpassad för att upptäcka
-                            rörelser och fungerar tillsammans med
-                            lukt och hörsel när hunden undersöker
-                            sin omgivning.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- BETEENDE -->
-
-            <section class="article-section">
-
-                <p class="eyebrow">
-                    BETEENDE
-                </p>
-
-                <h2>
-                    Hur kommunicerar hundar?
-                </h2>
-
-                <p>
-                    Hundar kommunicerar på flera olika sätt.
-                    Kroppshållning, ansiktsuttryck, svansens
-                    position, öronens placering och olika ljud
-                    kan ge information om hundens beteende.
-                </p>
-
-                <p>
-                    Skällande, morrande, gnällande och andra läten
-                    kan förekomma i olika situationer. För att förstå
-                    en hund behöver man därför titta på hela
-                    situationen och inte tolka ett enskilt ljud
-                    isolerat.
-                </p>
-
-                <p>
-                    Hundar kan också lära sig många olika signaler
-                    och beteenden genom träning. Positiv och
-                    konsekvent träning används ofta för att hjälpa
-                    hunden att förstå vad som förväntas.
-                </p>
-
-            </section>
-
-
-            <!-- HUNDTYPER -->
-
-            <section class="article-section">
-
-                <p class="eyebrow">
-                    MÅNGFALD
-                </p>
-
-                <h2>
-                    Olika typer av hundar
-                </h2>
-
-                <p>
-                    Det finns en mycket stor variation bland hundar.
-                    Olika raser och hundtyper har utvecklats för
-                    olika ändamål.
-                </p>
-
-
-                <div class="breed-grid">
-
-                    <div>
-                        <span>01</span>
-                        <h3>Jakthundar</h3>
-                        <p>
-                            Hundar som historiskt har avlats för
-                            olika typer av jakt och spårarbete.
-                        </p>
-                    </div>
-
-                    <div>
-                        <span>02</span>
-                        <h3>Vallhundar</h3>
-                        <p>
-                            Hundar som avlats för att hjälpa till
-                            att kontrollera och flytta boskap.
-                        </p>
-                    </div>
-
-                    <div>
-                        <span>03</span>
-                        <h3>Arbetande hundar</h3>
-                        <p>
-                            Hundar som tränats för exempelvis
-                            räddning, bevakning eller service.
-                        </p>
-                    </div>
-
-                    <div>
-                        <span>04</span>
-                        <h3>Sällskapshundar</h3>
-                        <p>
-                            Hundar som framför allt hålls som
-                            sällskapsdjur.
-                        </p>
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- MÄNNISKOR -->
-
-            <section class="article-section">
-
-                <p class="eyebrow">
-                    MÄNNISKAN & HUNDEN
-                </p>
-
-                <h2>
-                    Hundar och människor
-                </h2>
-
-                <p>
-                    Hundar har fått många roller i människors
-                    samhällen. De har använts som jakthundar,
-                    vallhundar, vakthundar och arbetande hundar.
-                    I modern tid används vissa hundar även som
-                    service- och assistanshundar.
-                </p>
-
-                <p>
-                    Som sällskapsdjur behöver hundar en miljö där
-                    deras behov kan tillgodoses. Det kan bland annat
-                    handla om motion, mental stimulans, social
-                    kontakt, lämplig kost och veterinärvård.
-                </p>
-
-            </section>
-
-
-            <!-- KÄLLOR -->
-
-            <section class="sources-modern">
-
-                <p class="eyebrow">
-                    KÄLLOR
-                </p>
-
-                <h2>
-                    Läs mer
-                </h2>
-
-                <p>
-                    Informationen på denna sida är en sammanfattning.
-                    Använd originalkällorna för att läsa mer och
-                    kontrollera detaljer.
-                </p>
-
-                <div class="source-links">
-
-                    <a
-                        href="https://commons.wikimedia.org/wiki/Dog"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        Wikimedia Commons
-                        <span>→</span>
-                    </a>
-
-                    <a
-                        href="https://en.wikipedia.org/wiki/Dog"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        Wikipedia – Dog
-                        <span>→</span>
-                    </a>
-
-                    <a
-                        href="https://www.nationalgeographic.com/animals/mammals/facts/gray-wolf"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        National Geographic
-                        <span>→</span>
-                    </a>
-
-                </div>
-
-                <p class="image-credit">
-                    Huvudbild: A140706 / Wikimedia Commons.
-                    Bilden är publicerad under CC0.
-                </p>
-
-            </section>
-
-        </article>
-
-
-        <!-- SIDEBAR -->
-
-        <aside class="sidebar">
-
-            <div class="sidebar-box">
-
-                <strong>
-                    På denna sida
-                </strong>
-
-                <a href="#top">Översikt</a>
-                <a href="#historia">Historia</a>
-                <a href="#sinnen">Sinnen</a>
-                <a href="#beteende">Beteende</a>
-                <a href="#typer">Hundtyper</a>
-
-            </div>
-
-        </aside>
-
-    </div>
-
-</section>
+</div>
 ```
 
 </main>
 
+<!-- ================= FOOTER ================= -->
+
 <footer>
 
 ```
-<div class="footer-logo">
-    🐾 Djurvärlden
+<div class="footer-inner">
+
+    <div class="logo">
+        🐾 Djurvärlden
+    </div>
+
+    <p>
+        Fakta om djur från etablerade och öppna källor.
+    </p>
+
+    <small>
+        © 2026 Djurvärlden
+    </small>
+
 </div>
-
-<p>
-    Fakta om djur från öppna och etablerade källor.
-</p>
-
-<p class="copyright">
-    © 2026 Djurvärlden
-</p>
 ```
 
 </footer>
 
 </body>
 </html>
+
