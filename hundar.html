@@ -1,581 +1,1577 @@
 <!DOCTYPE html>
-
 <html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<title>Hundar | Djurvärlden</title>
+    <title>Hundar | Djurvärlden</title>
 
-<meta name="description"
-      content="En modern faktasida om hundar, deras historia, sinnen, beteende och relation till människor.">
+    <meta name="description"
+          content="En modern faktasida om hundar, deras historia, sinnen, beteende och relation till människor.">
 
-<link rel="stylesheet" href="style.css">
-```
+    <style>
+        /* =====================================================
+           RESET
+        ===================================================== */
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Inter, -apple-system, BlinkMacSystemFont,
+                         "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f5f7f2;
+            color: #1d2921;
+            line-height: 1.7;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* =====================================================
+           VARIABLES
+        ===================================================== */
+
+        :root {
+            --green-dark: #10251c;
+            --green: #315c45;
+            --green-light: #e4eee7;
+            --accent: #b88b4a;
+            --cream: #f5f7f2;
+            --white: #ffffff;
+            --text: #1d2921;
+            --muted: #69756d;
+            --border: #dfe6df;
+            --shadow: 0 20px 60px rgba(16, 37, 28, 0.10);
+            --radius: 24px;
+        }
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 78px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            background: rgba(16, 37, 28, 0.90);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            color: white;
+            z-index: 1000;
+
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            font-size: 25px;
+        }
+
+        nav {
+            display: flex;
+            gap: 8px;
+        }
+
+        nav a {
+            padding: 10px 18px;
+            border-radius: 50px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            color: rgba(255,255,255,0.75);
+
+            transition: 0.25s ease;
+        }
+
+        nav a:hover {
+            color: white;
+            background: rgba(255,255,255,0.08);
+        }
+
+        nav a.active {
+            color: var(--green-dark);
+            background: white;
+        }
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 760px;
+            position: relative;
+
+            display: flex;
+            align-items: center;
+
+            overflow: hidden;
+
+            color: white;
+        }
+
+        .hero-background {
+            position: absolute;
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transform: scale(1.02);
+        }
+
+        .hero-dark {
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(8, 23, 16, 0.88) 0%,
+                    rgba(8, 23, 16, 0.68) 42%,
+                    rgba(8, 23, 16, 0.25) 100%
+                );
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 120px;
+
+            background: linear-gradient(
+                to top,
+                var(--cream),
+                transparent
+            );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            width: min(1150px, 88%);
+            margin: 0 auto;
+
+            padding-top: 80px;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-bottom: 20px;
+
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 3px;
+
+            color: #d8e5dc;
+        }
+
+        .hero-label::before {
+            content: "";
+            width: 35px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .hero h1 {
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: clamp(70px, 10vw, 130px);
+            line-height: 0.9;
+            letter-spacing: -6px;
+
+            margin-bottom: 20px;
+        }
+
+        .scientific {
+            font-family: Georgia, serif;
+            font-size: 21px;
+            color: #dce8df;
+            margin-bottom: 25px;
+        }
+
+        .hero-text {
+            max-width: 650px;
+
+            font-size: 19px;
+            line-height: 1.8;
+
+            color: rgba(255,255,255,0.86);
+
+            margin-bottom: 38px;
+        }
+
+        .hero-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 20px;
+
+            padding: 15px 23px;
+
+            border-radius: 50px;
+
+            background: white;
+            color: var(--green-dark);
+
+            font-weight: 800;
+            font-size: 14px;
+
+            transition: 0.3s ease;
+        }
+
+        .hero-button span {
+            width: 30px;
+            height: 30px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+            background: var(--green-light);
+
+            transition: 0.3s ease;
+        }
+
+        .hero-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+        }
+
+        .hero-button:hover span {
+            background: var(--green);
+            color: white;
+        }
+
+        /* =====================================================
+           QUICK FACTS
+        ===================================================== */
+
+        .quick-facts {
+            position: relative;
+            z-index: 5;
+
+            width: min(1150px, 88%);
+            margin: -45px auto 90px;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            background: white;
+
+            border-radius: var(--radius);
+
+            box-shadow: var(--shadow);
+
+            overflow: hidden;
+        }
+
+        .quick-fact {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+
+            padding: 28px 25px;
+
+            border-right: 1px solid var(--border);
+        }
+
+        .quick-fact:last-child {
+            border-right: none;
+        }
+
+        .fact-icon {
+            width: 48px;
+            height: 48px;
+
+            display: grid;
+            place-items: center;
+
+            flex-shrink: 0;
+
+            border-radius: 14px;
+            background: var(--green-light);
+
+            font-size: 21px;
+        }
+
+        .quick-fact small {
+            display: block;
+
+            margin-bottom: 3px;
+
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1.3px;
+
+            color: var(--muted);
+        }
+
+        .quick-fact strong {
+            font-size: 14px;
+            color: var(--green-dark);
+        }
+
+        /* =====================================================
+           MAIN
+        ===================================================== */
+
+        .page {
+            width: min(1150px, 88%);
+            margin: 0 auto;
+        }
+
+        .content {
+            padding-bottom: 100px;
+        }
+
+        /* =====================================================
+           ARTICLE SECTIONS
+        ===================================================== */
+
+        .article-section {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 40px;
+
+            padding: 85px 0;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-number {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--accent);
+
+            padding-top: 7px;
+
+            letter-spacing: 2px;
+        }
+
+        .section-label {
+            display: block;
+
+            margin-bottom: 12px;
+
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 3px;
+
+            color: var(--green);
+        }
+
+        h2 {
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: clamp(38px, 5vw, 60px);
+            line-height: 1.05;
+            letter-spacing: -2px;
+
+            color: var(--green-dark);
+
+            margin-bottom: 30px;
+        }
+
+        .article-section p {
+            max-width: 760px;
+
+            margin-bottom: 20px;
+
+            font-size: 17px;
+            color: #56625a;
+        }
+
+        /* =====================================================
+           LARGE IMAGE
+        ===================================================== */
+
+        .large-image {
+            margin: 20px 0 20px;
+        }
+
+        .large-image img {
+            width: 100%;
+            height: 580px;
+
+            object-fit: cover;
+
+            border-radius: 28px;
+
+            box-shadow: var(--shadow);
+        }
+
+        .large-image figcaption {
+            margin-top: 15px;
+            padding-left: 5px;
+
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* =====================================================
+           SCIENCE CARDS
+        ===================================================== */
+
+        .science-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+
+            margin-top: 40px;
+        }
+
+        .science-card {
+            padding: 30px;
+
+            background: white;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            transition: 0.3s ease;
+        }
+
+        .science-card:hover {
+            transform: translateY(-7px);
+            box-shadow: var(--shadow);
+            border-color: transparent;
+        }
+
+        .science-icon {
+            width: 55px;
+            height: 55px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 17px;
+
+            background: var(--green-light);
+
+            font-size: 25px;
+
+            margin-bottom: 22px;
+        }
+
+        .science-card h3 {
+            font-family: Georgia, serif;
+
+            font-size: 25px;
+
+            color: var(--green-dark);
+
+            margin-bottom: 12px;
+        }
+
+        .science-card p {
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        /* =====================================================
+           QUOTE
+        ===================================================== */
+
+        .quote {
+            position: relative;
+
+            margin-top: 40px;
+            padding: 35px 40px 35px 75px;
+
+            background: var(--green-dark);
+            color: white;
+
+            border-radius: var(--radius);
+
+            overflow: hidden;
+        }
+
+        .quote > span {
+            position: absolute;
+            left: 28px;
+            top: 22px;
+
+            font-family: Georgia, serif;
+
+            font-size: 70px;
+            line-height: 1;
+
+            color: var(--accent);
+        }
+
+        .quote p {
+            margin: 0;
+
+            color: rgba(255,255,255,0.88);
+
+            font-family: Georgia, serif;
+            font-size: 19px;
+            line-height: 1.7;
+        }
+
+        /* =====================================================
+           IMAGE SECTION
+        ===================================================== */
+
+        .image-section {
+            position: relative;
+
+            min-height: 570px;
+
+            margin: 100px 0;
+
+            border-radius: 30px;
+
+            overflow: hidden;
+
+            color: white;
+
+            box-shadow: var(--shadow);
+        }
+
+        .image-section img {
+            position: absolute;
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .image-section::after {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background: linear-gradient(
+                90deg,
+                rgba(8, 23, 16, 0.9),
+                rgba(8, 23, 16, 0.3)
+            );
+        }
+
+        .image-section-content {
+            position: relative;
+            z-index: 2;
+
+            width: 65%;
+
+            padding: 100px 70px;
+        }
+
+        .image-section-content > span {
+            display: block;
+
+            margin-bottom: 18px;
+
+            color: #d9e7dc;
+
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 3px;
+        }
+
+        .image-section-content h2 {
+            color: white;
+            margin-bottom: 25px;
+        }
+
+        .image-section-content p {
+            max-width: 570px;
+
+            color: rgba(255,255,255,0.82);
+
+            font-size: 17px;
+        }
+
+        /* =====================================================
+           TYPES
+        ===================================================== */
+
+        .type-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 2px;
+
+            margin-top: 45px;
+
+            border-radius: var(--radius);
+            overflow: hidden;
+
+            background: var(--border);
+        }
+
+        .type-grid > div {
+            padding: 32px;
+
+            background: white;
+
+            transition: 0.25s ease;
+        }
+
+        .type-grid > div:hover {
+            background: var(--green-dark);
+            color: white;
+        }
+
+        .type-grid > div:hover h3 {
+            color: white;
+        }
+
+        .type-grid > div:hover p {
+            color: rgba(255,255,255,0.72);
+        }
+
+        .type-grid span {
+            display: block;
+
+            margin-bottom: 20px;
+
+            color: var(--accent);
+
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .type-grid h3 {
+            margin-bottom: 8px;
+
+            font-family: Georgia, serif;
+            font-size: 25px;
+
+            color: var(--green-dark);
+        }
+
+        .type-grid p {
+            margin: 0;
+
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        /* =====================================================
+           SOURCES
+        ===================================================== */
+
+        .sources {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+
+            padding: 100px 0 30px;
+        }
+
+        .sources h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .sources p {
+            color: var(--muted);
+            font-size: 16px;
+        }
+
+        .source-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .source-list a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 22px 0;
+
+            border-bottom: 1px solid var(--border);
+
+            color: var(--green-dark);
+
+            transition: 0.2s ease;
+        }
+
+        .source-list a:hover {
+            padding-left: 10px;
+            color: var(--green);
+        }
+
+        .source-list span {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .source-list strong {
+            font-size: 14px;
+        }
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            background: var(--green-dark);
+            color: white;
+        }
+
+        .footer-inner {
+            width: min(1150px, 88%);
+            margin: auto;
+
+            padding: 55px 0;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+
+            align-items: center;
+            gap: 30px;
+        }
+
+        .footer-inner p {
+            color: rgba(255,255,255,0.55);
+            font-size: 13px;
+        }
+
+        .footer-inner small {
+            color: rgba(255,255,255,0.4);
+            font-size: 12px;
+        }
+
+        /* =====================================================
+           ANIMATION
+        ===================================================== */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content > * {
+            animation: fadeUp 0.8s ease both;
+        }
+
+        .hero-content .hero-label {
+            animation-delay: 0.1s;
+        }
+
+        .hero-content h1 {
+            animation-delay: 0.2s;
+        }
+
+        .hero-content .scientific {
+            animation-delay: 0.3s;
+        }
+
+        .hero-content .hero-text {
+            animation-delay: 0.4s;
+        }
+
+        .hero-content .hero-button {
+            animation-delay: 0.5s;
+        }
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .quick-facts {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .quick-fact:nth-child(2) {
+                border-right: none;
+            }
+
+            .quick-fact:nth-child(-n+2) {
+                border-bottom: 1px solid var(--border);
+            }
+
+            .science-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .image-section-content {
+                width: 80%;
+            }
+
+            .sources {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 650px) {
+
+            .navbar {
+                height: 68px;
+                padding: 0 5%;
+            }
+
+            .logo {
+                font-size: 17px;
+            }
+
+            .logo span {
+                font-size: 21px;
+            }
+
+            nav {
+                gap: 2px;
+            }
+
+            nav a {
+                padding: 8px 10px;
+                font-size: 12px;
+            }
+
+            .hero {
+                min-height: 680px;
+            }
+
+            .hero-content {
+                padding-top: 70px;
+            }
+
+            .hero h1 {
+                font-size: 70px;
+                letter-spacing: -4px;
+            }
+
+            .hero-text {
+                font-size: 16px;
+            }
+
+            .quick-facts {
+                width: 92%;
+                margin-top: -30px;
+
+                grid-template-columns: 1fr;
+            }
+
+            .quick-fact {
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .quick-fact:last-child {
+                border-bottom: none;
+            }
+
+            .page {
+                width: 90%;
+            }
+
+            .article-section {
+                grid-template-columns: 1fr;
+                gap: 10px;
+
+                padding: 65px 0;
+            }
+
+            .section-number {
+                padding: 0;
+            }
+
+            h2 {
+                font-size: 40px;
+            }
+
+            .article-section p {
+                font-size: 16px;
+            }
+
+            .large-image img {
+                height: 380px;
+                border-radius: 20px;
+            }
+
+            .science-card {
+                padding: 25px;
+            }
+
+            .quote {
+                padding: 30px 25px 30px 65px;
+            }
+
+            .quote p {
+                font-size: 17px;
+            }
+
+            .image-section {
+                min-height: 650px;
+                margin: 70px 0;
+                border-radius: 22px;
+            }
+
+            .image-section-content {
+                width: 100%;
+                padding: 70px 30px;
+            }
+
+            .image-section-content h2 {
+                font-size: 38px;
+            }
+
+            .type-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sources {
+                padding-top: 70px;
+            }
+
+            .sources h2 {
+                font-size: 36px;
+            }
+
+            .footer-inner {
+                padding: 45px 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
 <header class="navbar">
 
-```
-<a href="index.html" class="logo">
-    <span>🐾</span>
-    Djurvärlden
-</a>
+    <a href="index.html" class="logo">
+        <span>🐾</span>
+        Djurvärlden
+    </a>
 
-<nav>
-    <a href="index.html">Hem</a>
-    <a href="hundar.html" class="active">Hundar</a>
-    <a href="katter.html">Katter</a>
-</nav>
-```
+    <nav>
+        <a href="index.html">Hem</a>
+        <a href="hundar.html" class="active">Hundar</a>
+        <a href="katter.html">Katter</a>
+    </nav>
 
 </header>
 
-<!-- ================= HERO ================= -->
+
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero">
 
-```
-<img
-    src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=2000&q=85"
-    alt="Hund som sitter utomhus"
-    class="hero-background"
->
+    <img
+        src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=2000&q=85"
+        alt="Hund som sitter utomhus"
+        class="hero-background"
+    >
 
-<div class="hero-dark"></div>
+    <div class="hero-dark"></div>
 
-<div class="hero-content">
+    <div class="hero-content">
 
-    <span class="hero-label">
-        DJURVÄRLDEN
-    </span>
+        <span class="hero-label">
+            DJURVÄRLDEN
+        </span>
 
-    <h1>
-        Hundar
-    </h1>
+        <h1>Hundar</h1>
 
-    <p class="scientific">
-        <em>Canis lupus familiaris</em>
-    </p>
+        <p class="scientific">
+            <em>Canis lupus familiaris</em>
+        </p>
 
-    <p class="hero-text">
-        Lär dig mer om människans trogna följeslagare —
-        från hundens historia och fantastiska sinnen till
-        beteende, kommunikation och relationen med människor.
-    </p>
+        <p class="hero-text">
+            Lär dig mer om människans trogna följeslagare —
+            från hundens historia och fantastiska sinnen till
+            beteende, kommunikation och relationen med människor.
+        </p>
 
-    <a href="#fakta" class="hero-button">
-        Utforska hundar
-        <span>↓</span>
-    </a>
+        <a href="#fakta" class="hero-button">
+            Utforska hundar
+            <span>↓</span>
+        </a>
 
-</div>
-```
+    </div>
 
 </section>
 
-<!-- ================= QUICK FACTS ================= -->
+
+<!-- =====================================================
+     QUICK FACTS
+===================================================== -->
 
 <section class="quick-facts" id="fakta">
 
-```
-<div class="quick-fact">
+    <div class="quick-fact">
 
-    <span class="fact-icon">🧬</span>
+        <span class="fact-icon">🧬</span>
 
-    <div>
-        <small>VETENSKAPLIGT NAMN</small>
-        <strong><em>Canis lupus familiaris</em></strong>
+        <div>
+            <small>VETENSKAPLIGT NAMN</small>
+            <strong><em>Canis lupus familiaris</em></strong>
+        </div>
+
     </div>
 
-</div>
 
+    <div class="quick-fact">
 
-<div class="quick-fact">
+        <span class="fact-icon">🐾</span>
 
-    <span class="fact-icon">🐾</span>
+        <div>
+            <small>FAMILJ</small>
+            <strong>Canidae</strong>
+        </div>
 
-    <div>
-        <small>FAMILJ</small>
-        <strong>Canidae</strong>
     </div>
 
-</div>
 
+    <div class="quick-fact">
 
-<div class="quick-fact">
+        <span class="fact-icon">🌎</span>
 
-    <span class="fact-icon">🌎</span>
+        <div>
+            <small>GRUPP</small>
+            <strong>Däggdjur</strong>
+        </div>
 
-    <div>
-        <small>GRUPP</small>
-        <strong>Däggdjur</strong>
     </div>
 
-</div>
 
+    <div class="quick-fact">
 
-<div class="quick-fact">
+        <span class="fact-icon">❤️</span>
 
-    <span class="fact-icon">❤️</span>
+        <div>
+            <small>LEVER MED</small>
+            <strong>Människan</strong>
+        </div>
 
-    <div>
-        <small>LEVER MED</small>
-        <strong>Människan</strong>
     </div>
-
-</div>
-```
 
 </section>
 
-<!-- ================= MAIN ================= -->
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
 
 <main class="page">
 
-```
-<div class="content">
+    <div class="content">
 
 
-    <!-- INTRO -->
+        <!-- INTRO -->
 
-    <section class="article-section">
+        <section class="article-section">
 
-        <span class="section-number">
-            01
-        </span>
+            <span class="section-number">01</span>
 
-        <div>
+            <div>
 
-            <p class="section-label">
-                GRUNDERNA
-            </p>
+                <p class="section-label">
+                    GRUNDERNA
+                </p>
 
-            <h2>
-                Vad är en hund?
-            </h2>
-
-            <p>
-                Hunden är ett domesticerat däggdjur som tillhör
-                familjen hunddjur, Canidae. Den domesticerade
-                hunden är nära besläktad med vargen och har levt
-                tillsammans med människor under mycket lång tid.
-            </p>
-
-            <p>
-                Hundar finns i dag i nästan alla delar av världen
-                och används både som sällskapsdjur och i många
-                olika arbetsuppgifter. Genom selektiv avel har
-                människor utvecklat hundar med mycket olika
-                storlek, utseende, beteenden och egenskaper.
-            </p>
-
-            <p>
-                Trots den stora variationen mellan olika hundraser
-                tillhör alla domesticerade hundar samma art.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- IMAGE -->
-
-    <figure class="large-image">
-
-        <img
-            src="https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=1800&q=85"
-            alt="Hund ute i naturen"
-            loading="lazy"
-        >
-
-        <figcaption>
-            Hundar har utvecklats tillsammans med människor
-            under en mycket lång period.
-        </figcaption>
-
-    </figure>
-
-
-    <!-- HISTORY -->
-
-    <section class="article-section">
-
-        <span class="section-number">
-            02
-        </span>
-
-        <div>
-
-            <p class="section-label">
-                HISTORIA
-            </p>
-
-            <h2>
-                Hundens historia
-            </h2>
-
-            <p>
-                Hundens ursprung är nära kopplat till vargen.
-                Forskare har länge studerat när och var de första
-                hundarna domesticerades. Exakt hur processen gick
-                till är fortfarande föremål för forskning.
-            </p>
-
-            <p>
-                När hundar började leva närmare människor kunde
-                relationen gynna båda arterna. Hundar kunde dra
-                nytta av mat och skydd, medan människor kunde ha
-                nytta av hundarnas förmågor, exempelvis vid jakt
-                och vakthållning.
-            </p>
-
-            <p>
-                Under tusentals år har människor sedan avlat hundar
-                för olika egenskaper. Det har lett till den enorma
-                variation av hundar som finns i dag.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- SENSES -->
-
-    <section class="article-section">
-
-        <span class="section-number">
-            03
-        </span>
-
-        <div>
-
-            <p class="section-label">
-                SINNEN
-            </p>
-
-            <h2>
-                Hundens fantastiska sinnen
-            </h2>
-
-            <p>
-                Hundar uppfattar världen på ett annat sätt än
-                människor. Deras lukt, hörsel och syn hjälper
-                dem att förstå och undersöka sin omgivning.
-            </p>
-
-
-            <div class="science-grid">
-
-
-                <article class="science-card">
-
-                    <div class="science-icon">
-                        👃
-                    </div>
-
-                    <h3>
-                        Luktsinnet
-                    </h3>
-
-                    <p>
-                        Luktsinnet spelar en mycket viktig roll
-                        för hundar. De använder dofter för att
-                        undersöka sin omgivning och identifiera
-                        olika saker.
-                    </p>
-
-                </article>
-
-
-                <article class="science-card">
-
-                    <div class="science-icon">
-                        👂
-                    </div>
-
-                    <h3>
-                        Hörseln
-                    </h3>
-
-                    <p>
-                        Hundar har en känslig hörsel och kan
-                        uppfatta vissa ljud som ligger utanför
-                        människans hörselområde.
-                    </p>
-
-                </article>
-
-
-                <article class="science-card">
-
-                    <div class="science-icon">
-                        👀
-                    </div>
-
-                    <h3>
-                        Synen
-                    </h3>
-
-                    <p>
-                        Hundens syn är anpassad för att upptäcka
-                        rörelser och fungerar tillsammans med
-                        hundens andra sinnen.
-                    </p>
-
-                </article>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- BEHAVIOR -->
-
-    <section class="article-section">
-
-        <span class="section-number">
-            04
-        </span>
-
-        <div>
-
-            <p class="section-label">
-                BETEENDE
-            </p>
-
-            <h2>
-                Hur kommunicerar hundar?
-            </h2>
-
-            <p>
-                Hundar kommunicerar genom en kombination av
-                kroppsspråk, ansiktsuttryck, läten och dofter.
-                För att förstå en hund behöver man därför se
-                till hela situationen.
-            </p>
-
-            <p>
-                En hunds svans, öron, kroppshållning och ansikte
-                kan ge information om hur hunden reagerar på
-                sin omgivning. Skällande och andra läten kan
-                också förekomma i många olika situationer.
-            </p>
-
-            <div class="quote">
-
-                <span>“</span>
+                <h2>
+                    Vad är en hund?
+                </h2>
 
                 <p>
-                    Hundens beteende behöver förstås i sitt
-                    sammanhang. Ett enskilt kroppsspråk eller
-                    ljud berättar inte alltid hela historien.
+                    Hunden är ett domesticerat däggdjur som tillhör
+                    familjen hunddjur, Canidae. Den domesticerade
+                    hunden är nära besläktad med vargen och har levt
+                    tillsammans med människor under mycket lång tid.
+                </p>
+
+                <p>
+                    Hundar finns i dag i nästan alla delar av världen
+                    och används både som sällskapsdjur och i många
+                    olika arbetsuppgifter. Genom selektiv avel har
+                    människor utvecklat hundar med mycket olika
+                    storlek, utseende, beteenden och egenskaper.
+                </p>
+
+                <p>
+                    Trots den stora variationen mellan olika hundraser
+                    tillhör alla domesticerade hundar samma art.
                 </p>
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- HUMAN RELATION -->
+        <!-- IMAGE -->
 
-    <section class="image-section">
+        <figure class="large-image">
 
-        <img
-            src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=1800&q=85"
-            alt="Hund tillsammans med människa"
-            loading="lazy"
-        >
+            <img
+                src="https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=1800&q=85"
+                alt="Hund ute i naturen"
+                loading="lazy"
+            >
 
-        <div class="image-section-content">
+            <figcaption>
+                Hundar har utvecklats tillsammans med människor
+                under en mycket lång period.
+            </figcaption>
 
-            <span>
-                MÄNNISKAN & HUNDEN
-            </span>
-
-            <h2>
-                En relation som har förändrat båda arterna
-            </h2>
-
-            <p>
-                Hundar har haft många roller i människans samhällen,
-                från jakt och vallning till service, räddningsarbete
-                och sällskap.
-            </p>
-
-        </div>
-
-    </section>
+        </figure>
 
 
-    <!-- TYPES -->
+        <!-- HISTORY -->
 
-    <section class="article-section">
+        <section class="article-section">
 
-        <span class="section-number">
-            05
-        </span>
+            <span class="section-number">02</span>
 
-        <div>
+            <div>
 
-            <p class="section-label">
-                MÅNGFALD
-            </p>
+                <p class="section-label">
+                    HISTORIA
+                </p>
 
-            <h2>
-                Olika typer av hundar
-            </h2>
+                <h2>
+                    Hundens historia
+                </h2>
 
-            <p>
-                Hundar har avlats för många olika uppgifter.
-                Därför kan deras egenskaper och behov skilja
-                sig mycket åt.
-            </p>
+                <p>
+                    Hundens ursprung är nära kopplat till vargen.
+                    Forskare har länge studerat när och var de första
+                    hundarna domesticerades. Exakt hur processen gick
+                    till är fortfarande föremål för forskning.
+                </p>
+
+                <p>
+                    När hundar började leva närmare människor kunde
+                    relationen gynna båda arterna. Hundar kunde dra
+                    nytta av mat och skydd, medan människor kunde ha
+                    nytta av hundarnas förmågor, exempelvis vid jakt
+                    och vakthållning.
+                </p>
+
+                <p>
+                    Under tusentals år har människor sedan avlat hundar
+                    för olika egenskaper. Det har lett till den enorma
+                    variation av hundar som finns i dag.
+                </p>
+
+            </div>
+
+        </section>
 
 
-            <div class="type-grid">
+        <!-- SENSES -->
 
-                <div>
-                    <span>01</span>
-                    <h3>Jakthundar</h3>
-                    <p>
-                        Avlade för olika typer av jakt och
-                        spårarbete.
-                    </p>
-                </div>
+        <section class="article-section">
 
-                <div>
-                    <span>02</span>
-                    <h3>Vallhundar</h3>
-                    <p>
-                        Avlade för att hjälpa människor
-                        att hantera boskap.
-                    </p>
-                </div>
+            <span class="section-number">03</span>
 
-                <div>
-                    <span>03</span>
-                    <h3>Arbetande hundar</h3>
-                    <p>
-                        Kan tränas för exempelvis service,
-                        räddning och bevakning.
-                    </p>
-                </div>
+            <div>
 
-                <div>
-                    <span>04</span>
-                    <h3>Sällskapshundar</h3>
-                    <p>
-                        Hundar som främst hålls för sällskap
-                        och familjeliv.
-                    </p>
+                <p class="section-label">
+                    SINNEN
+                </p>
+
+                <h2>
+                    Hundens fantastiska sinnen
+                </h2>
+
+                <p>
+                    Hundar uppfattar världen på ett annat sätt än
+                    människor. Deras lukt, hörsel och syn hjälper
+                    dem att förstå och undersöka sin omgivning.
+                </p>
+
+
+                <div class="science-grid">
+
+                    <article class="science-card">
+
+                        <div class="science-icon">
+                            👃
+                        </div>
+
+                        <h3>
+                            Luktsinnet
+                        </h3>
+
+                        <p>
+                            Luktsinnet spelar en mycket viktig roll
+                            för hundar. De använder dofter för att
+                            undersöka sin omgivning och identifiera
+                            olika saker.
+                        </p>
+
+                    </article>
+
+
+                    <article class="science-card">
+
+                        <div class="science-icon">
+                            👂
+                        </div>
+
+                        <h3>
+                            Hörseln
+                        </h3>
+
+                        <p>
+                            Hundar har en känslig hörsel och kan
+                            uppfatta vissa ljud som ligger utanför
+                            människans hörselområde.
+                        </p>
+
+                    </article>
+
+
+                    <article class="science-card">
+
+                        <div class="science-icon">
+                            👀
+                        </div>
+
+                        <h3>
+                            Synen
+                        </h3>
+
+                        <p>
+                            Hundens syn är anpassad för att upptäcka
+                            rörelser och fungerar tillsammans med
+                            hundens andra sinnen.
+                        </p>
+
+                    </article>
+
                 </div>
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- SOURCES -->
+        <!-- BEHAVIOR -->
 
-    <section class="sources">
+        <section class="article-section">
 
-        <div>
+            <span class="section-number">04</span>
 
-            <span class="section-label">
-                KÄLLOR
-            </span>
+            <div>
 
-            <h2>
-                Läs mer och kontrollera informationen
-            </h2>
+                <p class="section-label">
+                    BETEENDE
+                </p>
 
-            <p>
-                Informationen på Djurvärlden är sammanfattad
-                från externa källor. Klicka på en källa för
-                att läsa originalinformationen.
-            </p>
+                <h2>
+                    Hur kommunicerar hundar?
+                </h2>
 
-        </div>
+                <p>
+                    Hundar kommunicerar genom en kombination av
+                    kroppsspråk, ansiktsuttryck, läten och dofter.
+                    För att förstå en hund behöver man därför se
+                    till hela situationen.
+                </p>
+
+                <p>
+                    En hunds svans, öron, kroppshållning och ansikte
+                    kan ge information om hur hunden reagerar på
+                    sin omgivning. Skällande och andra läten kan
+                    också förekomma i många olika situationer.
+                </p>
+
+                <div class="quote">
+
+                    <span>“</span>
+
+                    <p>
+                        Hundens beteende behöver förstås i sitt
+                        sammanhang. Ett enskilt kroppsspråk eller
+                        ljud berättar inte alltid hela historien.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
 
 
-        <div class="source-list">
+        <!-- HUMAN RELATION -->
 
-            <a
-                href="https://sv.wikipedia.org/wiki/Hund"
-                target="_blank"
-                rel="noopener"
+        <section class="image-section">
+
+            <img
+                src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=1800&q=85"
+                alt="Hund tillsammans med människa"
+                loading="lazy"
             >
-                <span>Wikipedia</span>
-                <strong>Hund →</strong>
-            </a>
 
-            <a
-                href="https://commons.wikimedia.org/wiki/Category:Dogs"
-                target="_blank"
-                rel="noopener"
-            >
-                <span>Wikimedia Commons</span>
-                <strong>Bilder →</strong>
-            </a>
+            <div class="image-section-content">
 
-            <a
-                href="https://www.nationalgeographic.com/animals/mammals/facts/domestic-dog"
-                target="_blank"
-                rel="noopener"
-            >
-                <span>National Geographic</span>
-                <strong>Fakta →</strong>
-            </a>
+                <span>
+                    MÄNNISKAN & HUNDEN
+                </span>
 
-        </div>
+                <h2>
+                    En relation som har förändrat båda arterna
+                </h2>
 
-    </section>
+                <p>
+                    Hundar har haft många roller i människans samhällen,
+                    från jakt och vallning till service, räddningsarbete
+                    och sällskap.
+                </p>
 
-</div>
-```
+            </div>
+
+        </section>
+
+
+        <!-- TYPES -->
+
+        <section class="article-section">
+
+            <span class="section-number">05</span>
+
+            <div>
+
+                <p class="section-label">
+                    MÅNGFALD
+                </p>
+
+                <h2>
+                    Olika typer av hundar
+                </h2>
+
+                <p>
+                    Hundar har avlats för många olika uppgifter.
+                    Därför kan deras egenskaper och behov skilja
+                    sig mycket åt.
+                </p>
+
+
+                <div class="type-grid">
+
+                    <div>
+
+                        <span>01</span>
+
+                        <h3>
+                            Jakthundar
+                        </h3>
+
+                        <p>
+                            Avlade för olika typer av jakt och
+                            spårarbete.
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>02</span>
+
+                        <h3>
+                            Vallhundar
+                        </h3>
+
+                        <p>
+                            Avlade för att hjälpa människor
+                            att hantera boskap.
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>03</span>
+
+                        <h3>
+                            Arbetande hundar
+                        </h3>
+
+                        <p>
+                            Kan tränas för exempelvis service,
+                            räddning och bevakning.
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>04</span>
+
+                        <h3>
+                            Sällskapshundar
+                        </h3>
+
+                        <p>
+                            Hundar som främst hålls för sällskap
+                            och familjeliv.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SOURCES -->
+
+        <section class="sources">
+
+            <div>
+
+                <span class="section-label">
+                    KÄLLOR
+                </span>
+
+                <h2>
+                    Läs mer och kontrollera informationen
+                </h2>
+
+                <p>
+                    Informationen på Djurvärlden är sammanfattad
+                    från externa källor. Klicka på en källa för
+                    att läsa originalinformationen.
+                </p>
+
+            </div>
+
+
+            <div class="source-list">
+
+                <a
+                    href="https://sv.wikipedia.org/wiki/Hund"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    <span>Wikipedia</span>
+                    <strong>Hund →</strong>
+                </a>
+
+                <a
+                    href="https://commons.wikimedia.org/wiki/Category:Dogs"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    <span>Wikimedia Commons</span>
+                    <strong>Bilder →</strong>
+                </a>
+
+                <a
+                    href="https://www.nationalgeographic.com/animals/mammals/facts/domestic-dog"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    <span>National Geographic</span>
+                    <strong>Fakta →</strong>
+                </a>
+
+            </div>
+
+        </section>
+
+    </div>
 
 </main>
 
-<!-- ================= FOOTER ================= -->
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
-```
-<div class="footer-inner">
+    <div class="footer-inner">
 
-    <div class="logo">
-        🐾 Djurvärlden
+        <div class="logo">
+            🐾 Djurvärlden
+        </div>
+
+        <p>
+            Fakta om djur från etablerade och öppna källor.
+        </p>
+
+        <small>
+            © 2026 Djurvärlden
+        </small>
+
     </div>
-
-    <p>
-        Fakta om djur från etablerade och öppna källor.
-    </p>
-
-    <small>
-        © 2026 Djurvärlden
-    </small>
-
-</div>
-```
 
 </footer>
 
 </body>
 </html>
-
